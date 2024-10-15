@@ -1,0 +1,9 @@
+utils::globalVariables(c(".",
+                         "latest_sub",
+                         "slash_number",
+                         "txtProgressBar",
+                         "setTxtProgressBar",
+                         "Received",
+                         "Accepted",
+                         "tat",
+                         "issue_type"))
