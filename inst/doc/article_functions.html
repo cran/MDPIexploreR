@@ -12,7 +12,7 @@
 
 
 
-<title>Introduction to MDPIexploreR</title>
+<title>Obtaining articles data</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +60,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -336,55 +336,11 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">Introduction to
-<code>MDPIexploreR</code></h1>
+<h1 class="title toc-ignore">Obtaining articles data</h1>
 
 
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(MDPIexploreR)</span></code></pre></div>
-<div id="obtaining-list-of-journals" class="section level1">
-<h1>Obtaining list of journals</h1>
-<p>To retrieve the most current list of MDPI journals, the
-<code>MDPIexploreR</code> package utilizes the
-<code>MDPI_journals()</code> function. This function fetches data from
-the official MDPI journals page at <a href="https://www.mdpi.com/about/journals">https://www.mdpi.com/about/journals</a>
-and generates a table containing the names of the journals along with
-their corresponding codes.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">MDPI_journals</span>()<span class="sc">|&gt;</span><span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt;                             journal            code</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; 1                         Acoustics       acoustics</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; 2     Acta Microbiologica Hellenica             amh</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; 3                         Actuators       actuators</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; 4           Administrative Sciences          admsci</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; 5                       Adolescents     adolescents</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; 6  Advances in Respiratory Medicine             arm</span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; 7                       Aerobiology     aerobiology</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; 8                         Aerospace       aerospace</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; 9                       Agriculture     agriculture</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; 10                  AgriEngineering agriengineering</span></span></code></pre></div>
-<p>These journal codes can then be used across the multiple functions of
-<code>MDPIexploreR</code>.</p>
-</div>
-<div id="article-level-information" class="section level1">
-<h1>Article level information</h1>
-<p><code>MDPIexploreR</code> makes easy to obtain a list of all articles
-published in a journal. For example, to get a list of all articles
-published in the journal “MDPI Covid” we just need to do:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">article_find</span>(<span class="st">&quot;covid&quot;</span>)<span class="sc">|&gt;</span><span class="fu">head</span>(<span class="dv">5</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;https://www.mdpi.com/2673-8112/1/1/1&quot;</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; [2] &quot;https://www.mdpi.com/2673-8112/1/1/2&quot;</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; [3] &quot;https://www.mdpi.com/2673-8112/1/1/3&quot;</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; [4] &quot;https://www.mdpi.com/2673-8112/1/1/4&quot;</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; [5] &quot;https://www.mdpi.com/2673-8112/1/1/5&quot;</span></span></code></pre></div>
-<p>Extracting editorial information from an article can be done
-with:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">article_info</span>(<span class="st">&quot;https://www.mdpi.com/2673-8112/1/1/4&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt;   |                                                                              |                                                                      |   0%  |                                                                              |======================================================================| 100%</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;                                      i article_type   Received   Accepted</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; 1 https://www.mdpi.com/2673-8112/1/1/4       Review 2021-05-01 2021-06-21</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;       tat year issue_type</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 1 51 days 2021         No</span></span></code></pre></div>
-</div>
 
 
 

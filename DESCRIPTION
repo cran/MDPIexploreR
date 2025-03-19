@@ -1,7 +1,7 @@
 Package: MDPIexploreR
 Title: Web Scraping and Bibliometric Analysis of MDPI Journals
-Version: 0.2.0
-URL: https://pgomba.github.io/MDPI_explorer/
+Version: 0.3.0
+URL: https://github.com/pgomba/MDPI_exploreR
 Authors@R: 
     person("Pablo","Gómez Barreiro", ,"pablogomezbr@hotmail.es", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3140-3326"))
@@ -11,13 +11,14 @@ License: CC BY 4.0
 Encoding: UTF-8
 RoxygenNote: 7.3.2
 LazyData: true
-Imports: dplyr, ggplot2, lubridate, magrittr, rvest, scales, stringr
+Imports: dplyr, ggplot2, lubridate, magrittr, rvest, scales, stringr,
+        tidyr
 Suggests: knitr, rmarkdown
 NeedsCompilation: no
-Packaged: 2024-10-11 11:14:24 UTC; pg05wk
+Packaged: 2025-03-19 21:35:40 UTC; sipab
 Author: Pablo Gómez Barreiro [aut, cre]
     (<https://orcid.org/0000-0002-3140-3326>)
 Maintainer: Pablo Gómez Barreiro <pablogomezbr@hotmail.es>
 Depends: R (>= 3.5.0)
 Repository: CRAN
-Date/Publication: 2024-10-15 15:10:09 UTC
+Date/Publication: 2025-03-19 21:50:02 UTC

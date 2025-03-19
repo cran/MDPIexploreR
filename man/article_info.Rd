@@ -21,10 +21,12 @@ A data frame (class: \code{data.frame}) with the following columns:
 \item{i}{The URL of the article from which the information is retrieved.}
 \item{article_type}{The classification of the article (e.g., editorial, review).}
 \item{Received}{The date the article was received by the publisher.}
+\item{Revised}{The date the article was confirmed as revised by the publisher.}
 \item{Accepted}{The date the article was accepted for publication.}
 \item{tat}{The turnaround time, calculated as the number of days between the received and accepted dates.}
 \item{year}{The year in which the article was accepted for publication.}
 \item{issue_type}{Indicates whether the article is part of a special issue.}
+\item{open_peer_review}{Indictes if article peer review is publicly available or not}
 }
 }
 \description{
@@ -32,7 +34,7 @@ This function extracts key editorial information from one or more paper URLs. Sp
 }
 \examples{
 url<-c("https://www.mdpi.com/2073-4336/8/4/45","https://www.mdpi.com/2073-4336/11/3/39")
-\donttest{
+\dontrun{
 info<-article_info(url, 1.5)
 }
 

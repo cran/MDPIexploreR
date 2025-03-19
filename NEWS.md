@@ -1,12 +1,21 @@
----
-format:
-  html:
-    theme: 
-      light: cosmo
-      dark: darkly
-    css: styles.css
-    toc: true
----
+# MDPIexploreR 0.3.0
+
+`plot_article()` now includes option "tat" to plot turnaround times
+
+`plot_article()` of `type="tat"` ignores Editorial and Correction type articles for TAT calculations
+
+`plot_article()` stops if incorrect type of plot is requested
+
+`article_info()` now outputs `Revised` date column
+
+`article_info()` now outputs whether or not an article has open peer review
+
+`plot_article()` includes option to summarize % of available peer review by year 
+
+New functions, `topic_find()` and `topic_info()`, mimic `special_issue_find` and `guest_editor_info()` behaviour but for topics. 
+
+`special_issue_info()` will replace `guest_editor_info()` in future versions to keep function naming consistency.
+
 # MDPIexploreR 0.2.0 
 
 Preparations for CRAN
